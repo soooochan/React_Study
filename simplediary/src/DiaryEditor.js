@@ -1,18 +1,17 @@
-import {useState} from "react";
+import React,{useRef, useState} from "react";
 
 
 const DiaryEditor = () =>{
-
     const authorInput = useRef();
     const contentInput = useRef();
-
+   
     const [state, setState] = useState({
         author:"",
         content:"",
         emotion:1,
 
     })
-
+    
     const handleChangeState = (e) => {
         console.log(e.target.name);
         console.log(e.target.value);
