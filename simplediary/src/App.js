@@ -28,7 +28,7 @@ import DiaryList from './DiaryList';
 //   },
 // ]
 function App() {
-  const [data,setData] = useState([]);
+  const [data, setData] = useState([]);
 
   const dataId = useRef(0);
 
@@ -46,10 +46,15 @@ function App() {
     setData([...data, newItem]);
   };
 
+  const onDelete = (targetId)=>{
+    console.log(`${targetId}가 삭제되었습니다.`);
+    const newDiaryList = data.filter((it)=> it.id != targetId);
+    setData(newDiaryList);
+  }
   return (
     <div className="App">
      <DiaryEditor onCreate = {onCreate}/>
-     <DiaryList diaryList={data}/>
+     <DiaryList onDelete = {onDelete} diaryList={data}/>
     </div>
   );
 }
