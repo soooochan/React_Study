@@ -13,4 +13,4 @@
 1. 내용 수정
 2. 내용 삭제
 
-<img src = "./simplediary/Diary_Main.png" width = 100 height = 100>
+<img src="./simplediary/Diary_Main.PNG" width="100" height="100">
