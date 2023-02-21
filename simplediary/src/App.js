@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 import DiaryEditor from "./DiaryEditor";
 import DiaryList from "./DiaryList";
@@ -31,7 +31,7 @@ const App = () => {
     }, 1500);
   }, []);
 
-  const onCreate = (author, content, emotion) => {
+  const onCreate = useCallback((author, content, emotion) => {
     const created_date = new Date().getTime();
     const newItem = {
       author,
@@ -40,17 +40,18 @@ const App = () => {
       created_date,
       id: dataId.current
     };
-    dataId.current += 1;
-    setData([newItem, ...data]);
-  };
 
-  const onRemove = (targetId) => {
-    const newDiaryList = data.filter((it) => it.id !== targetId);
-    setData(newDiaryList);
-  };
+    dataId.current += 1;
+    setData((data) => [newItem, ...data]);
+  }, []);
+
+  const onRemove = useCallback((targetId) => {
+   setData( data => data.filter((it) => it.id !== targetId));
+
+  },[]);
 
   const onEdit = (targetId, newContent) => {
-    setData(
+    setData( (data)=>
       data.map((it) =>
         it.id === targetId ? { ...it, content: newContent } : it
       )
