@@ -1,6 +1,4 @@
-# React_Study
-
-## 간단한 SimpleDiary
+## React Study \_ 간단한 SimpleDiary 만들어보기
 
 ## 구성
 
