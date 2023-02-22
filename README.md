@@ -11,6 +11,8 @@
 1. 내용 수정
 2. 내용 삭제
 
+## 초기 단계
+
 <p align="center">
   <img src="Diary_Main.png" width="200" height="200">
 </p>
